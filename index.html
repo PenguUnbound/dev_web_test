@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Massage Spa - Home Massage Spa Panggilan Jakarta</title>
+    <title>Green Massage Spa - Home Massage Spa Panggilan Jakarta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #C08552;
+            /* --primary-color: #C08552;
             --secondary-color: #8C5A3C;
             --dark-color: #4B2E2B;
             --light-color: #FFF8F0;
-            --text-gray: #6b7280;
+            --text-gray: #6b7280; */
+
+            --primary-color: #9AB17A;
+            --secondary-color: #C3CC9B;
+            --dark-color: #4C5C2D;
+            --light-color: #E4DFB5;
+            --text-gray: #4C5C2D;
         }
 
         * {
@@ -30,7 +36,8 @@
 
         /* Navbar */
         .navbar {
-            background: white;
+            /* background: white; */
+            background: #6b987a;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 15px 0;
             position: sticky;
@@ -39,18 +46,19 @@
         }
 
         .navbar-brand img {
-            height: 50px;
+            height: 95px;
         }
 
         .navbar-nav .nav-link {
-            color: var(--dark-color);
+            /* color: var(--dark-color); */
+            color: white;
             font-weight: 500;
             margin: 0 15px;
             transition: color 0.3s;
         }
 
         .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
+            color: var(--dark-color);
         }
 
         /* Hero Section */
@@ -177,6 +185,42 @@
             transition: all 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             height: 475px;
+            --x-px: calc(var(--x) * 1px);
+            --y-px: calc(var(--y) * 1px);
+            overflow: hidden;
+            
+            &:before,
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                inset: 0px;
+                border-radius: inherit;
+                background: radial-gradient(
+                800px circle at var(--x-px) var(--y-px),
+                rgba(255, 255, 255, 0.3),
+                transparent 40%
+                );
+            }
+
+            &:before {
+                z-index: 1;
+            }
+
+            &:after {
+                opacity: 0;
+                z-index: 2;
+                transition: opacity 0.4s ease;
+            }
+
+            &:hover:after {
+                opacity: 1;
+            }
+
         }
 
         .feature-card:hover {
@@ -315,6 +359,7 @@
 
         .service-content {
             padding: 30px;
+            height: auto;
         }
 
         .service-content h4 {
@@ -347,6 +392,33 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
         }
+
+        /* 1. The wrapper itself */
+        .hidden-wrapper1, .hidden-wrapper2, .hidden-wrapper3 {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+            overflow: hidden;
+            visibility: hidden; /* Extra safety to prevent interaction when closed */
+            transition: grid-template-rows 0.4s ease-in-out, visibility 0.4s;
+        }
+
+        /* 2. When the 'is-open' class is added via JS */
+        .hidden-wrapper1.is-open, .hidden-wrapper2.is-open, .hidden-wrapper3.is-open {
+            grid-template-rows: 1fr;
+            visibility: visible;
+        }
+
+        /* 3. CRITICAL: The internal content fix */
+        .hidden-wrapper1 > .hidden_detail_paket1, 
+        .hidden-wrapper2 > .hidden_detail_paket2 , 
+        .hidden-wrapper3 > .hidden_detail_paket3 {
+            min-height: 0;
+            margin-top: 0; 
+            /* We move the margin to the bottom so it doesn't 'pop' during animation */
+            margin-bottom: 20px; 
+        }
+                
 
         /* Testimonials Section */
         .testimonials-section {
@@ -446,8 +518,8 @@
             padding: 60px 0 30px;
         }
 
-        .footer-logo {
-            height: 60px;
+        footer img {
+            height: 200px;
             margin-bottom: 20px;
         }
 
@@ -551,7 +623,7 @@
 <body>
     
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/6285773259973?text=Halo%20DevHome%20Spa!%20Saya%20ingin%20bertanya." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/6285773259973?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20bertanya." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -559,7 +631,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="asset/log.png" alt="Dev Massage Spa">
+                <img src="asset/log_white_crop.png" alt="Green Massage Spa">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -589,12 +661,12 @@
                 <div class="col-lg-12 hero-content">
                     <h1>Massage & Spa Jakarta</h1>
                     <span id="element"></span>
-                    <p style="font-size: 1.1rem;">Layanan spa dan Massage profesional langsung ke rumah, hotel, atau apartemen Anda. Terapis berpengalaman, respon cepat, dan tersedia 24 jam di seluruh area Jakarta.</p>
-                    <div class="mt-4">
-                        <a href="https://wa.me/6285773259973" class="btn btn-hero btn-primary-custom">Pesan Sekarang</a>
+                    <p style="font-size: 1.1rem;">Layanan Massage & Spa Online Professional langsung ke hotel maupun apartemen anda. Terapis berpengalaman, respon cepat dan tersedia 24 jam di seluruh area JABODETABEK</p>                    
+                </div>
+                <div style='z-index: 9999;' class="mt-4">
+                        <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20bertanya." class="btn btn-hero btn-primary-custom">Pesan Sekarang</a>
                         <a href="#services" class="btn btn-hero btn-outline-custom">Cek Layanan</a>
                     </div>
-                </div>
             </div>
         </div>
     </section>
@@ -603,10 +675,10 @@
     <section class="why-section" id="why">
         <div class="container">
             <div class="section-title">
-                <h2>Kenapa harus Dev Massage & Spa?</h2>
+                <h2>Kenapa harus Green Massage & Spa?</h2>
                 <p>Di tengah kesibukan Jakarta, kami memahami bahwa waktu Anda sangat berharga. Kami bukan sekadar penyedia layanan, tapi mitra Anda untuk meraih relaksasi yang berkualitas.</p>
             </div>
-            <div class="row">
+            <div class="row features">
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -624,7 +696,7 @@
                         </div>
                         <h4>Layanan 24/7 On-Demand</h4>
                         <h6 style="color: var(--primary-color); margin-bottom: 15px;">Layanan 24 Jam</h6>
-                        <p>Dev Massage & Spa menawarkan fleksibilitas penuh. Terapis kami siap memberikan layanan profesional kapan saja Anda perlukan.</p>
+                        <p>Green Massage & Spa menawarkan fleksibilitas penuh. Terapis kami siap memberikan layanan profesional kapan saja Anda perlukan.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -659,7 +731,7 @@
                     <div class="about-content">
                         <h2>Tentang Kami</h2>
                         <h5>Berpengalaman di Bidang spa & Massage panggilan</h5>
-                        <p><strong>Dev Massage & Spa</strong> lahir dari visi untuk menghadirkan layanan pijat dan spa premium ke dalam privasi dan kenyamanan rumah Anda. Kami percaya bahwa relaksasi berkualitas tinggi seharusnya tidak menjadi kemewahan yang sulit dijangkau, melainkan bagian dari gaya hidup modern.</p>
+                        <p><strong>Green Massage & Spa</strong> lahir dari visi untuk menghadirkan layanan pijat dan spa premium ke dalam privasi dan kenyamanan rumah Anda. Kami percaya bahwa relaksasi berkualitas tinggi seharusnya tidak menjadi kemewahan yang sulit dijangkau, melainkan bagian dari gaya hidup modern.</p>
                         <p>Dengan tim terapis profesional yang terlatih dan beretika, kami berkomitmen untuk memberikan pengalaman yang tidak hanya meredakan lelah fisik, tetapi juga menenangkan pikiran. Setiap sesi dirancang untuk memenuhi kebutuhan unik Anda, memastikan Anda mendapatkan kembali energi dan keseimbangan di tengah hiruk pikuk Jakarta.</p>
                     </div>
                     <div class="row stats-row">
@@ -702,50 +774,85 @@
     <section class="services-section" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>✦ Massage & Spa Panggilan Jakarta 24 Jam ✦</h2>
-                <p><strong>Dev Massage & Spa</strong> berkomitmen untuk melayani Anda kapan saja. Tim terapis profesional kami siap sedia 24 jam untuk memberikan relaksasi premium, langsung di lokasi Anda.</p>
+                <h2>✦ Massage & Spa Online JABODETABEK 24 Jam ✦</h2>
+                <p><strong>Green Massage & Spa</strong> berkomitmen untuk melayani Anda kapan saja. Tim terapis profesional kami siap sedia 24 jam untuk memberikan relaksasi premium, langsung di lokasi Anda.</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="asset/img2.jpg" alt="Massage Tradisional">
+                            <img src="asset/trad_massage.jpg" alt="Massage Tradisional">
                         </div>
                         <div class="service-content">
                             <h4>Massage Tradisional</h4>
                             <p>Massage khas Indonesia untuk melancarkan peredaran darah, mengurangi pegal, dan menyegarkan tubuh.</p>
-                            <a href="https://wa.me/6285773259973" class="btn-service">Pesan Sekarang</a>
+                            <div class="hidden-wrapper1">
+                                <table class="hidden_detail_paket1">                                    
+                                    <tr>
+                                        <td>60 Menit</td>
+                                        <td><b>300 Rb</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>90 Menit</td>
+                                        <td><b>350 Rb</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>120 Menit</td>
+                                        <td><b>400 Rb</b></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20memesan%20Massage%20Tradisional." class="btn-service">Pesan Sekarang</a>
+                            <a href="#" class="btn-service harga_paket1">Harga</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="asset/img3.jpg" alt="Massage Refleksi">
+                            <img src="asset/face_massage.jpg" alt="Face Massage">
                         </div>
                         <div class="service-content">
-                            <h4>Massage Refleksi</h4>
-                            <p>Stimulasi titik-titik pada kaki yang berhubungan dengan organ tubuh, membantu relaksasi dan kesehatan holistik.</p>
-                            <a href="https://wa.me/6285773259973" class="btn-service">Pesan Sekarang</a>
+                            <h4>Face Massage</h4>
+                            <p>Stimulasi titik-titik pada wajah untuk merangsang kolagen, meningkatkan elastisitas dan mengurangi tampilan garis halus.</p>
+                            <div class="hidden-wrapper2">
+                                <table class="hidden_detail_paket2">                                    
+                                    <tr>
+                                        <td>60 Menit</td>
+                                        <td><b>150 Rb</b></td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20memesan%20Face%20Massage." class="btn-service">Pesan Sekarang</a>
+                            <a href="#" class="btn-service harga_paket2">Harga</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="asset/img4.jpeg" alt="Full Body Massage">
+                            <img src="asset/body_scrub.jpg" alt="Scrub Body Massage">
                         </div>
                         <div class="service-content">
-                            <h4>Full Body Massage</h4>
-                            <p>Massage menyeluruh dari kepala hingga kaki untuk melepaskan stres, menyegarkan tubuh, dan menenangkan pikiran.</p>
-                            <a href="https://wa.me/6285773259973" class="btn-service">Pesan Sekarang</a>
+                            <h4>Body Scrub</h4>
+                            <p>Pijat dan Eksfoliasi kulit menggunakan scrub alami. Untuk kecantikan kulit dan juga relaksasi menyeluruh sehingga tubuh terasa lebih segar.</p>
+                            <div class="hidden-wrapper3">   
+                                <table class="hidden_detail_paket3">                                                                        
+                                    <tr>
+                                        <td>90 Menit</td>
+                                        <td><b>300 Rb</b></td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20memesan%20Body%20Scrub." class="btn-service">Pesan Sekarang</a>
+                            <a href="#" class="btn-service harga_paket3">Harga</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="#services" class="btn btn-hero btn-primary-custom" style="background: var(--primary-color); color: white; border-color: var(--primary-color);">Cek Semua Layanan</a>
-            </div>
+            <!-- <div class="text-center mt-4">
+                <a href="#" class="btn btn-hero btn-primary-custom all_paket" style="background: var(--primary-color); color: white; border-color: var(--primary-color);">Cek Semua Layanan</a>
+            </div> -->
         </div>
     </section>
 
@@ -754,18 +861,18 @@
         <div class="container">
             <div class="section-title">
                 <h2>Apa Kata Pelanggan Kami?</h2>
-                <p>Kepuasan Anda adalah prioritas kami. Simak pengalaman mereka yang telah merasakan langsung layanan premium dari <strong>Dev Massage & Spa</strong>.</p>
+                <p>Kepuasan Anda adalah prioritas kami. Simak pengalaman mereka yang telah merasakan langsung layanan premium dari <strong>Green Massage & Spa</strong>.</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial-card">
                     <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="testimonial-text">"Saya sering mengalami pegal-pegal karena duduk terlalu lama. Sejak rutin memanggil Dev Massage & Spa, masalah itu berkurang drastis. Ini bukan sekadar pijat, tapi investasi untuk kesehatan."</p>
+                    <p class="testimonial-text">"Saya sering mengalami pegal-pegal karena duduk terlalu lama. Sejak rutin memanggil Green Massage & Spa, masalah itu berkurang drastis. Ini bukan sekadar pijat, tapi investasi untuk kesehatan."</p>
                     <div class="testimonial-author">Fitri</div>
                     <div class="testimonial-location">Jakarta Barat</div>
                 </div>
                 <div class="testimonial-card">
                     <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="testimonial-text">"Layanan Dev Massage & Spa benar-benar penyelamat di akhir pekan. Setelah seminggu penuh bekerja, pijatan dari terapisnya sukses bikin badan kembali fit. Rasanya seperti di spa beneran, tapi di kamar sendiri!"</p>
+                    <p class="testimonial-text">"Layanan Green Massage & Spa benar-benar penyelamat di akhir pekan. Setelah seminggu penuh bekerja, pijatan dari terapisnya sukses bikin badan kembali fit. Rasanya seperti di spa beneran, tapi di kamar sendiri!"</p>
                     <div class="testimonial-author">Dimas</div>
                     <div class="testimonial-location">Jakarta Timur</div>
                 </div>
@@ -777,7 +884,7 @@
                 </div>
                 <div class="testimonial-card">
                     <i class="fas fa-quote-left quote-icon"></i>
-                    <p class="testimonial-text">"Pijatannya luar biasa, sangat profesional. Saya merasa lebih segar dan energik. Layanan 24 jamnya juga sangat membantu. Sangat puas dengan Dev Massage & Spa!"</p>
+                    <p class="testimonial-text">"Pijatannya luar biasa, sangat profesional. Saya merasa lebih segar dan energik. Layanan 24 jamnya juga sangat membantu. Sangat puas dengan Green Massage & Spa!"</p>
                     <div class="testimonial-author">Fajar</div>
                     <div class="testimonial-location">Jakarta Selatan</div>
                 </div>
@@ -791,7 +898,7 @@
             <div class="cta-content">
                 <h2>Siap untuk Relaksasi? Kami Siap Datang ke Lokasi!</h2>
                 <p>Tidak perlu repot keluar rumah. Cukup hubungi kami, dan biarkan tim terapis profesional kami yang mendatangi Anda. Pengalaman spa & pijat premium, kini ada di genggaman Anda.</p>
-                <a href="https://wa.me/6285773259973" class="btn btn-hero btn-primary-custom">Reservasi Sekarang</a>
+                <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20reservasi." class="btn btn-hero btn-primary-custom">Reservasi Sekarang</a>
             </div>
         </div>
     </section>
@@ -801,8 +908,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <img src="asset/log.png" alt="Dev Massage Spa">
-                    <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Dev Massage Spa adalah layanan spa & massage panggilan profesional yang beroperasi 24 jam di area Jakarta.</p>
+                    <img src="asset/log_white_crop.png" alt="Green Massage Spa">
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 20px;">Green Massage Spa adalah layanan spa & massage panggilan profesional yang beroperasi 24 jam di area JABODETABEK.</p>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4">
                     <div class="footer-section">
@@ -818,9 +925,7 @@
                     <div class="footer-section">
                         <h5>Layanan Kami</h5>
                         <ul>
-                            <li><a href="#services">Massage Tradisional</a></li>
-                            <li><a href="#services">Massage Refleksi</a></li>
-                            <li><a href="#services">Full Body Massage</a></li>
+                            <li><a href="#services">Massage Tradisional</a></li>                            
                             <li><a href="#services">Totok Wajah</a></li>
                             <li><a href="#services">Body Scrub / Lulur</a></li>
                         </ul>
@@ -836,11 +941,18 @@
                             <li><a href="#">Jakarta Selatan</a></li>
                             <li><a href="#">Jakarta Utara</a></li>
                         </ul>
+                        <h5>Luar Jakarta</h5>
+                        <ul>
+                            <li><a href="#">Bogor</a></li>
+                            <li><a href="#">Depok</a></li>
+                            <li><a href="#">Tangerang</a></li>
+                            <li><a href="#">Bekasi</a></li>                            
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Dev Massage Spa. All Rights Reserved.</p>
+                <p>&copy; 2026 Green Massage Spa. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -923,7 +1035,88 @@
                         }
                     }
                 ]
+            });            
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButtons1 = document.querySelectorAll('.harga_paket1');
+            const toggleButtons2 = document.querySelectorAll('.harga_paket2');
+            const toggleButtons3 = document.querySelectorAll('.harga_paket3');            
+
+            toggleButtons1.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Find the wrapper within the same card
+                    const card = this.closest('.service-content');
+                    const wrapper = card.querySelector('.hidden-wrapper1');
+                    
+                    wrapper.classList.toggle('is-open');
+
+                    // Update button text for better UX
+                    if (wrapper.classList.contains('is-open')) {
+                        this.textContent = 'Harga';
+                    } else {
+                        this.textContent = 'Harga';
+                    }
+                });
             });
+
+            toggleButtons2.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Find the wrapper within the same card
+                    const card = this.closest('.service-content');
+                    const wrapper = card.querySelector('.hidden-wrapper2');
+                    
+                    wrapper.classList.toggle('is-open');
+
+                    // Update button text for better UX
+                    if (wrapper.classList.contains('is-open')) {
+                        this.textContent = 'Harga';
+                    } else {
+                        this.textContent = 'Harga';
+                    }
+                });
+            });
+
+            toggleButtons3.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Find the wrapper within the same card
+                    const card = this.closest('.service-content');
+                    const wrapper = card.querySelector('.hidden-wrapper3');
+                    
+                    wrapper.classList.toggle('is-open');
+
+                    // Update button text for better UX
+                    if (wrapper.classList.contains('is-open')) {
+                        this.textContent = 'Harga';
+                    } else {
+                        this.textContent = 'Harga';
+                    }
+                });
+            });
+
+            toggleAll.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Find the wrapper within the same card
+                    const card = this.closest('.row');
+                    const wrapper1 = card.querySelector('.hidden-wrapper1');
+                    const wrapper2 = card.querySelector('.hidden-wrapper2');
+                    const wrapper3 = card.querySelector('.hidden-wrapper3');
+                    
+                    wrapper1.classList.toggle('is-open');
+                    wrapper2.classList.toggle('is-open');
+                    wrapper3.classList.toggle('is-open');
+                    
+                });
+            });
+                                               
         });
 
         // Smooth Scrolling
@@ -948,6 +1141,21 @@
             } else {
                 navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
+        });
+    </script>
+    <script>
+        //card hover effect
+        const featuresEl = document.querySelector(".features");
+        const featureEls = document.querySelectorAll(".feature-card");
+
+        featuresEl.addEventListener("pointermove", (ev) => {
+        featureEls.forEach((featureEl) => {
+            // Not optimized yet, I know
+            const rect = featureEl.getBoundingClientRect();
+
+            featureEl.style.setProperty("--x", ev.clientX - rect.left);
+            featureEl.style.setProperty("--y", ev.clientY - rect.top);
+        });
         });
     </script>
 </body>
