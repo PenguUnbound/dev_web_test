@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Massage Spa - Home Massage Spa Panggilan Jakarta</title>
+    <meta name="title" content="Green Massage Spa | Home Massage Spa Panggilan JABODETABEK">
+    <meta name="description" content="Massage Nyaman Berkualitas Hanya di Green Massage Spa">
+    <meta name="keywords" content="Spa Jakarta,Spa JABODETABEK,Massage Jakarta,Massage JABODETABEK,Spa Online Jakarta,Spa Online JABODETABEK,Spa Panggilan Jakarta,Spa Panggilan JABODETABEK">    
+    <meta content="Daftar massage,spa,pijat online,panggilan nyaman di Jakarta & JABODETABEK" name="description">    
+    <meta content="Daftar massage,spa,pijat online,panggilan nyaman di Jakarta & JABODETABEK" property="og:title">
+    <meta content="Daftar massage,spa,pijat online,panggilan nyaman di Jakarta & JABODETABEK" property="og:description">
+    <title>Green Massage Spa - Home Massage Spa Panggilan JABODETABEK</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="asset/favicon.png">    
     
     <style>
         :root {
@@ -380,7 +387,7 @@
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 20px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
@@ -396,7 +403,7 @@
         }
 
         /* 1. The wrapper itself */
-        .hidden-wrapper1, .hidden-wrapper2, .hidden-wrapper3 {
+        .hidden-wrapper1, .hidden-wrapper2, .hidden-wrapper3 , .hidden-wrapper4{
             display: grid;
             grid-template-rows: 0fr;
             transition: grid-template-rows 0.4s ease-in-out;
@@ -406,7 +413,7 @@
         }
 
         /* 2. When the 'is-open' class is added via JS */
-        .hidden-wrapper1.is-open, .hidden-wrapper2.is-open, .hidden-wrapper3.is-open {
+        .hidden-wrapper1.is-open, .hidden-wrapper2.is-open, .hidden-wrapper3.is-open, .hidden-wrapper4.is-open {
             grid-template-rows: 1fr;
             visibility: visible;
         }
@@ -414,7 +421,8 @@
         /* 3. CRITICAL: The internal content fix */
         .hidden-wrapper1 > .hidden_detail_paket1, 
         .hidden-wrapper2 > .hidden_detail_paket2 , 
-        .hidden-wrapper3 > .hidden_detail_paket3 {
+        .hidden-wrapper3 > .hidden_detail_paket3 ,
+        .hidden-wrapper4 > .hidden_detail_paket4 {
             min-height: 0;
             margin-top: 0; 
             /* We move the margin to the bottom so it doesn't 'pop' during animation */
@@ -621,6 +629,7 @@
         }
     </style>
     
+    
 </head>
 <body>    
     <!-- WhatsApp Float Button -->
@@ -779,7 +788,7 @@
                 <p><strong>Green Massage & Spa</strong> berkomitmen untuk melayani Anda kapan saja. Tim terapis profesional kami siap sedia 24 jam untuk memberikan relaksasi premium, langsung di lokasi Anda.</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
                             <img src="asset/trad_massage.jpg" alt="Massage Tradisional">
@@ -808,7 +817,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
                             <img src="asset/face_massage.jpg" alt="Face Massage">
@@ -829,7 +838,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="service-card">
                         <div class="service-image">
                             <img src="asset/body_scrub.jpg" alt="Scrub Body Massage">
@@ -847,6 +856,27 @@
                             </div>
                             <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20memesan%20Body%20Scrub." class="btn-service">Pesan Sekarang</a>
                             <a href="#" class="btn-service harga_paket3">Harga</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="asset/reflexy_massage.jpg" alt="Reflexy Massage">
+                        </div>
+                        <div class="service-content">
+                            <h4>Reflexy Massage</h4>
+                            <p>Penekanan titik-titik tertentu di kaki, tangan, dan telinga. Untuk meringankan stress, meningkatkan kualitas tidur, hingga mengatasi gejala peradangan sendi.</p>
+                            <div class="hidden-wrapper4">   
+                                <table class="hidden_detail_paket4">                                                                        
+                                    <tr>
+                                        <td>60 Menit</td>
+                                        <td><b>250 Rb</b></td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                            <a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20memesan%20Body%20Scrub." class="btn-service">Pesan Sekarang</a>
+                            <a href="#" class="btn-service harga_paket4">Harga</a>
                         </div>
                     </div>
                 </div>
@@ -918,7 +948,8 @@
                         <ul>
                             <li><a href="#home">Home</a></li>
                             <li><a href="#services">Layanan</a></li>
-                            <li><a href="#contact">Kontak</a></li>
+                            <li><a href="https://wa.me/6281380055586?text=Halo%20Green%20Massage%26Spa!%20Saya%20ingin%20bertanya.">Kontak</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -927,8 +958,9 @@
                         <h5>Layanan Kami</h5>
                         <ul>
                             <li><a href="#services">Massage Tradisional</a></li>                            
-                            <li><a href="#services">Totok Wajah</a></li>
-                            <li><a href="#services">Body Scrub / Lulur</a></li>
+                            <li><a href="#services">Face Massage</a></li>
+                            <li><a href="#services">Body Scrub</a></li>
+                            <li><a href="#services">Reflexy Massage</a></li>
                         </ul>
                     </div>
                 </div>
@@ -953,7 +985,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Green Massage Spa. All Rights Reserved.</p>
+                <p><span id="yearx"></span> Green Massage Spa. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1036,13 +1068,20 @@
                         }
                     }
                 ]
-            });            
+            });  
+            
+            // const specificDate = new Date("July 21, 1983 01:15:00");
+            // const year = specificDate.getFullYear();
+
+            const currentYear = new Date().getFullYear();            
+            document.getElementById("yearx").textContent = currentYear;
         });
 
         document.addEventListener('DOMContentLoaded', () => {
             const toggleButtons1 = document.querySelectorAll('.harga_paket1');
             const toggleButtons2 = document.querySelectorAll('.harga_paket2');
             const toggleButtons3 = document.querySelectorAll('.harga_paket3');            
+            const toggleButtons4 = document.querySelectorAll('.harga_paket4');            
 
             toggleButtons1.forEach(btn => {
                 btn.addEventListener('click', function(e) {
@@ -1101,23 +1140,43 @@
                 });
             });
 
-            toggleAll.forEach(btn => {
+            toggleButtons4.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     // Find the wrapper within the same card
-                    const card = this.closest('.row');
-                    const wrapper1 = card.querySelector('.hidden-wrapper1');
-                    const wrapper2 = card.querySelector('.hidden-wrapper2');
-                    const wrapper3 = card.querySelector('.hidden-wrapper3');
+                    const card = this.closest('.service-content');
+                    const wrapper = card.querySelector('.hidden-wrapper4');
                     
-                    wrapper1.classList.toggle('is-open');
-                    wrapper2.classList.toggle('is-open');
-                    wrapper3.classList.toggle('is-open');
-                    
+                    wrapper.classList.toggle('is-open');
+
+                    // Update button text for better UX
+                    if (wrapper.classList.contains('is-open')) {
+                        this.textContent = 'Harga';
+                    } else {
+                        this.textContent = 'Harga';
+                    }
                 });
             });
-                                               
+
+            // toggleAll.forEach(btn => {
+            //     btn.addEventListener('click', function(e) {
+            //         e.preventDefault();
+                    
+            //         // Find the wrapper within the same card
+            //         const card = this.closest('.row');
+            //         const wrapper1 = card.querySelector('.hidden-wrapper1');
+            //         const wrapper2 = card.querySelector('.hidden-wrapper2');
+            //         const wrapper3 = card.querySelector('.hidden-wrapper3');
+                    
+            //         wrapper1.classList.toggle('is-open');
+            //         wrapper2.classList.toggle('is-open');
+            //         wrapper3.classList.toggle('is-open');
+                    
+            //     });
+            // });
+             
+            
         });
 
         // Smooth Scrolling
